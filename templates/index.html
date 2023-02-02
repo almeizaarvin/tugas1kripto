@@ -8,6 +8,27 @@
     <body>
         <h1>Hello World!</h1>
         <h2>Welcome to Calculus Cryptor</h2>
+
+        <p>Select method:</p>
+
+        <form action="/" method="post" enctype="multipart/form-data">
+            <input type="radio" name="method" value="Option 1" />Vigenere Cipher
+            (Standard)<br />
+            <input type="radio" name="method" value="Option 2" />Autokey
+            Vigenere Cipher<br />
+            <input type="radio" name="method" value="Option 3" />Extended
+            Vigenere Cipher (ASCII)<br />
+            <input type="radio" name="method" value="Option 4" />Affine
+            Cipher<br />
+            <input type="radio" name="method" value="Option 5" />Playfair
+            Cipher<br />
+            <input type="radio" name="method" value="Option 6" />Hill Cipher<br />
+            <input type="file" name="file" />
+            <input type="submit" value="Upload" />
+        </form>
+        <p>Your Plaintext: {{ text }}</p>
+        <p>Your Method: {{ method }}</p>
+
         <button class="button button1">Encrypt</button>
         <button class="button button2">Decrypt</button>
     </body>
