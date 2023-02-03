@@ -196,7 +196,6 @@ def autokeyVigenereCipherEncrypt(plaintext, key):
     for i in range(len(plaintext)):
         j = int(i % len(keyword))
         ciphertext += indexOfAlphabet((alphabetIndex(plaintext[i]) + alphabetIndex(keyword[j])) % 26)
-        print(ciphertext)
         
     return render_template('index.html', text=plaintext, method="AutokeyVigenereCipher", action="Encrypt", result=ciphertext)
 
@@ -270,10 +269,5 @@ def hillCipherDecrypt(ciphertext, key):
         for j in range (0, len(adjointMatrixKey)):
             adjointMatrixKey[i][j] *= invNum
             adjointMatrixKey[i][j] = int(adjointMatrixKey[i][j] % 26)
-            
-    print(key)
-    print(determinant)
-    print(adjointMatrix(key))
-    print(invNum)
     
     return hillCipherEncrypt(ciphertext, adjointMatrixKey)
