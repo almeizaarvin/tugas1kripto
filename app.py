@@ -183,7 +183,7 @@ def vigenereCipherDecrypt(ciphertext, key):
     keyIndex = [ord(i) for i in key]
     ciphertextIndex = [ord(i) for i in ciphertext]
     plaintext = ''
-    for i in range(len(ciphertext_int)):
+    for i in range(len(ciphertextIndex)):
         x = ((ciphertextIndex[i] - keyIndex[i % len(key)]) % 26 ) + ord('A')
         plaintext += chr(x)
 
@@ -194,8 +194,9 @@ def autokeyVigenereCipherEncrypt(plaintext, key):
     ciphertext = ""
 
     for i in range(len(plaintext)):
-        j = i % len(keyword)
-        ciphertext += alphabetIndex((indexOfAlphabet(plaintext[i]) + indexOfAlphabet(keyword[j])) % 26)
+        j = int(i % len(keyword))
+        ciphertext += indexOfAlphabet((alphabetIndex(plaintext[i]) + alphabetIndex(keyword[j])) % 26)
+        print(ciphertext)
         
     return render_template('index.html', text=plaintext, method="AutokeyVigenereCipher", action="Encrypt", result=ciphertext)
 
@@ -231,7 +232,7 @@ def affineCipherDecrypt(ciphertext, inputkey):
     for char in ciphertext:
         index = (aInv * (alphabetIndex(char) - b)) % 26
         plaintext += indexOfAlphabet(index)
-    return render_template('index.html', text=ciphertext, method="affineCipher", action="Encrypt", result=plaintext)
+    return render_template('index.html', text=ciphertext, method="affineCipher", action="Decrypt", result=plaintext)
 
 def hillCipherEncrypt(plaintext, key):
     step = len(key)
