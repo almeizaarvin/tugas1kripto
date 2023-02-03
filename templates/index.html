@@ -12,24 +12,52 @@
         <p>Select method:</p>
 
         <form action="/" method="post" enctype="multipart/form-data">
-            <input type="radio" name="method" value="Option 1" />Vigenere Cipher
-            (Standard)<br />
-            <input type="radio" name="method" value="Option 2" />Autokey
-            Vigenere Cipher<br />
-            <input type="radio" name="method" value="Option 3" />Extended
-            Vigenere Cipher (ASCII)<br />
-            <input type="radio" name="method" value="Option 4" />Affine
+            <input type="radio" name="method" value="VigenereCipher" />Vigenere
+            Cipher (Standard)<br />
+            <input
+                type="radio"
+                name="method"
+                value="AutokeyVigenereCipher"
+            />Autokey Vigenere Cipher<br />
+            <input
+                type="radio"
+                name="method"
+                value="ExtendedVigenereCipher"
+            />Extended Vigenere Cipher (ASCII)<br />
+            <input type="radio" name="method" value="AffineCipher" />Affine
             Cipher<br />
-            <input type="radio" name="method" value="Option 5" />Playfair
+            <input type="radio" name="method" value="PlayfairCipher" />Playfair
             Cipher<br />
-            <input type="radio" name="method" value="Option 6" />Hill Cipher<br />
+            <input type="radio" name="method" value="HillCipher" />Hill
+            Cipher<br />
             <input type="file" name="file" />
-            <input type="submit" value="Upload" />
+            <label for="key">Enter key:</label>
+            <p>*untuk Affine Cipher, masukkan format: a, b</p>
+            <input type="text" id="key" name="key" />
+
+            <input
+                type="submit"
+                class="button button1"
+                name="action"
+                value="Encrypt"
+            />
+            <input
+                type="submit"
+                class="button button2"
+                name="action"
+                value="Decrypt"
+            />
+            <input
+                type="submit"
+                class="button button2"
+                name="action"
+                value="Download"
+            />
         </form>
+
         <p>Your Plaintext: {{ text }}</p>
         <p>Your Method: {{ method }}</p>
-
-        <button class="button button1">Encrypt</button>
-        <button class="button button2">Decrypt</button>
+        <p>Your Action: {{ action }}</p>
+        <p>Result: {{ result }}</p>
     </body>
 </html>
